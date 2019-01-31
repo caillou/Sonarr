@@ -17,6 +17,7 @@ namespace NzbDrone.Core.Indexers
 
         public static string ReplaceUnicode(string content)
         {
+            content = content.Replace("【", "[").Replace("】", "]");
             return ReplaceUnicodeRegex.Replace(content, string.Empty);
         }
 

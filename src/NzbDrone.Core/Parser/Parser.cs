@@ -22,6 +22,12 @@ namespace NzbDrone.Core.Parser
                 // Korean series without season number, replace with S01Exxx and remove airdate.
                 new RegexReplace(@"\.E(\d{2,4})\.\d{6}\.(.*-NEXT)$", ".S01E$1.$2", RegexOptions.Compiled),
 
+                // Chinese anime releases with many brackets, replace with title - episode and remove air year
+                new RegexReplace(@"(?:\[\])*\d*\[(?:\W*[ /_])?([^\[\]]+?)\][-_. ]?(?:\[\d{4}\])?\[((?<!\d+)\d{2,3}(\.\d{1,2})?(?!\d+))(?:END)?\]",
+                        "$1 - $2", RegexOptions.Compiled),
+                
+                // Chinese anime releases with duplicated titles - remove separator
+                new RegexReplace(@"\]\W*[ /_]+([^\[\]]+?)[-_. ]+-[-_. ]+((?<!\d+)\d{2,3}(\.\d{1,2})?(?!\d+))(?:END)?", "]$1 - $2", RegexOptions.Compiled),
             };
 
         private static readonly Regex[] ReportTitleRegex = new[]

@@ -94,6 +94,13 @@ namespace NzbDrone.Core.Test.ParserTests
         [TestCase("Tokyo Ghoul: RE S2 - Episode 4 VOSTFR (1080p)", "Tokyo Ghoul RE S2", 4, 0, 0)]
         [TestCase("To Aru Majutsu no Index III - Episode 5 VOSTFR (1080p)", "To Aru Majutsu no Index III", 5, 0, 0)]
         [TestCase("[Prout] Steins;Gate 0 - Episode 5 VOSTFR (BDRip 1920x1080 x264 FLAC)", "Steins;Gate 0", 5, 0, 0)]
+        // 【喵萌奶茶屋】★10月新番★[哥布林杀手/ Goblin Slayer ][ 12END ][720p][繁体][招募翻译校对]
+        [TestCase("[]10[/Goblin Slayer][12END][720p][][]", "Goblin Slayer", 12, 0, 0)]
+        // [喵萌奶茶屋&LoliHouse]玛娜利亚魔法学院/巴哈姆特之怒Manaria Friends - 03 [WebRip 1080p HEVC-10bit AAC][简繁内封字幕]
+        [TestCase("[&LoliHouse]/Manaria Friends - 03 [WebRip 1080p HEVC-10bit AAC][]", "Manaria Friends", 3, 0, 0)]
+        [TestCase("[][/Tate no Yuusha no Nariagari][01][BIG5][720P]", "Tate no Yuusha no Nariagari", 1, 0, 0)]
+        [TestCase("[YMDR][][Kaguya-sama wa Kokurasetai][2019][02][1080p][HEVC][JAP][BIG5][MP4-AAC][]", "Kaguya-sama wa Kokurasetai", 2, 0, 0)]
+        [TestCase("[][!_Watashi ni Tenshi ga Maiorita!][05][][720P][MP4]", "Watashi ni Tenshi ga Maiorita!", 5, 0, 0)]
         //[TestCase("", "", 0, 0, 0)]
         public void should_parse_absolute_numbers(string postTitle, string title, int absoluteEpisodeNumber, int seasonNumber, int episodeNumber)
         {
